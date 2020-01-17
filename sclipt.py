@@ -6,7 +6,7 @@ from MonitorWebPages import MonitorBishHP
 monitor = MonitorBishHP()
 notify = SendMessage()
 
-with open("/home/shoma/Documents/workfiles/momokan/TopNews.txt", 'r') as file:
+with open("./TopNews.txt", 'r') as file:
     top_news = file.read()
 
 if monitor.is_changed_for_top_news() == True:
@@ -18,7 +18,7 @@ if monitor.is_changed_for_top_news() == True:
         "\n" + "***最新情報***"
         "\n" + top_news +
         "\n" + monitor.url,
-        "/home/shoma/Documents/workfiles/momokan/pictures/no_update.jpg")
+        "./pictures/no_update.jpg")
 else:
     notify.send_line(
         "\n" +
@@ -28,7 +28,7 @@ else:
         "\n" + "***最新情報***"
         "\n" + top_news +
         "\n" + monitor.url,
-        "/home/shoma/Documents/workfiles/momokan/pictures/updated.jpg")
+        "./pictures/updated.jpg")
 
 # 更新されたトップニュースを保存
 monitor.save_top_news()

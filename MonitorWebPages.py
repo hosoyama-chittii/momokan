@@ -26,13 +26,13 @@ class MonitorBishHP():
     # スクレイピングした内容をファイルに上書き保存する。
     def save_top_news(self):
         # 実行時のトップニュースをtxtファイルで保存
-        with open("/home/shoma/Documents/workfiles/momokan/TopNews.txt", 'w') as file:  # ファイル名をself.read_start_timeとしファイルを作る。'w'は開いたファイルにデータを上書きする。
+        with open("./TopNews.txt", 'w') as file:  # ファイル名をself.read_start_timeとしファイルを作る。'w'は開いたファイルにデータを上書きする。
             file.write(str(self.top_news))
 
     # 現在のスクレイピング先のURLのh2タグの中身と前回分と差を確認
     def is_changed_for_top_news(self):
         # 過去のトップニュースを読み込む
-        with open("/home/shoma/Documents/workfiles/momokan/TopNews.txt", 'r') as file:
+        with open("./TopNews.txt", 'r') as file:
             self.top_news_txt = file.read()
 
         print("実行時のトップニュース"+":"+self.top_news)
